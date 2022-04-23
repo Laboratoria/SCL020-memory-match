@@ -1,0 +1,63 @@
+*{
+    background-color:#FC8A07;
+    margin: 0.5px;
+    padding: 10px;
+
+}
+header{
+    display: flex;
+    justify-content: end;
+
+}
+.sound{
+    display: flex;
+    justify-content: end;
+    background-color:#05EEEE;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    font-family: 'luckiest guy', cursive;
+    color:#C7146B;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+.buttons{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     flex-direction: column;
+
+}
+
+.start{
+    background-color:#7BCC10;
+    width: 258px;
+    height: 60px;
+    border-radius: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    color:#C7146B;
+    font-size: 40px;
+    line-height: 50%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.instructions{
+    background-color:#F0C60A;
+    width: 258px;
+    height: 60px;
+    border-radius: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    color:#C7146B;
+    font-size: 30px;
+    cursor: pointer;
+}

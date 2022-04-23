@@ -1,0 +1,43 @@
+*{
+    background-color: #05eeee;
+    margin: 1.5px;
+    padding: 10px;
+}
+.back{
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7BCC10;
+    font-family:'luckiest guy', cursive;
+}
+.dificulty{
+    color:white;
+    font-family: 'luckiest guy', cursive;
+    display:flex;
+    justify-content: center; 
+    font-size:25px;
+}
+.options{
+    display:flex;
+    justify-content: center;
+}
+.one{
+    width: 150px;
+    height: 90px;
+    background-color:#7BCC10;
+}
+.two{
+    width: 120px;
+    height: 120px;
+    background-color:#C7146B;
+    border-radius: 100px;
+}
+.three{
+    width: 80px;
+    height: 120px;
+    border-radius: 70px;
+    background-color:#FC8A07 ;
+}

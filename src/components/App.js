@@ -14,13 +14,73 @@
 //   .catch(console.error);
 //
 
-const App = () => {
-  const el = document.createElement('div');
+// import pokemon from "../data/pokemon/pokemon.js";
+//console.log(pokemon)
 
-  el.className = 'App';
-  el.textContent = 'Hola mundo!';
-
-  return el;
+//FUNCIÓN SCORE
+const drawScoreSetValue = (score) => {
+  // console.log("score", score);
+  // let labelScore = document.getElementById("score");
+  return "Score: " + score * 10;
 };
 
-export default App;
+const clearSelectCards = (selectedCards) => {
+  selectedCards = [];
+  return selectedCards;
+};
+const clearSelectedCardsNames = (selectedCardsNames) => {
+  selectedCardsNames = [];
+  return selectedCardsNames;
+};
+const sumScore = (score) => {
+  score += 1;
+  return score;
+};
+
+const sound = (path) => {
+  if (path) {
+    let matchSound = new Audio(path);
+    matchSound.play();
+    return matchSound;
+  }
+  return true;
+};
+
+//FUNCIÓN SHUFFLING CARTAS
+const shuffle = (pokemon) => {
+  let duplicate = pokemon.concat(pokemon);
+  duplicate.sort(() => Math.random() - 0.5);
+  return duplicate; //retornará array de cartas aleatoriamente
+};
+
+let timerEl = "";
+
+let secs = 0;
+let mins = 0;
+let SS = "";
+let MM = "";
+const getTime = () => {
+  secs++;
+  if (secs == 60) {
+    secs = 0;
+    mins++;
+  }
+
+  secs < 10 ? (SS = `0${secs}`) : (SS = `${secs}`);
+  mins < 10 ? (MM = `0${mins}`) : (SS = `${mins}`);
+
+  timerEl = "Timer: " + `${MM}:${SS}`;
+  // console.log(timerEl, "timerEl");
+  return timerEl;
+};
+
+//export default App;
+export {
+  drawScoreSetValue,
+  clearSelectCards,
+  clearSelectedCardsNames,
+  sumScore,
+  sound,
+  shuffle,
+  getTime,
+};

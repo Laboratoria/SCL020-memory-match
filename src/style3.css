@@ -1,10 +1,11 @@
 *{  
-    margin:1.5px;
-    padding:10px;  
+    margin: 0px;
+    padding:0px; 
+    box-sizing: border-box; 
     }
 
     body{
-        background-image: url("memoryimages/backShapes.png")
+        background-image: url("./memoryimages/backShapes.png")
     }
     
   h1{
@@ -15,8 +16,11 @@
     font-family: 'Luckiest Guy', cursive;
     color:white;
     margin-top: 10px;
-    text-align: center;
+    text-align:center;
+    justify-content: center;
+    padding-top: 5px;
     border-radius: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black; 
  }
 
 .text{
@@ -33,4 +37,78 @@
     background-color: #7BCC10;
     font-family:'luckiest guy', cursive;
     margin-left: 50px;
+}
+.wrap{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    margin-right: 10px;
+    grid-column-gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    }
+img{
+width: 200px;
+height: 200px;
+border-radius:20px;
+}
+
+.cardWrap{
+    -webkit-perspective: 800;
+    perspective: 800;
+    
+    }
+
+.card{
+    width: 200px;
+    height: 200px;
+    background: #7BCC10;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .7s ease;
+    margin: 10px;
+    margin-left: 10px;
+    border-radius:20px;
+    animation: iniciar 3s;
    
+}
+
+
+.frontFace, .backFace{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+     pointer-events: none;
+}
+
+
+
+.frontFace{
+    width: 100%;
+}
+.backFace{
+    transform: rotateY(180deg);
+   
+}
+/*.cardWrap:hover .card{
+    transform: rotateY(180deg);
+   }*/
+.toggleCard{
+  transform: rotateY(180deg);
+}
+
+@keyframes iniciar{
+20%,90%{
+transform: rotateY(180deg);
+}
+0%,100%{
+Transform: rotateY(0deg);
+}
+}
+
+/*.cardWrap:click .card{
+    transform: rotateY(180deg);
+   }*/

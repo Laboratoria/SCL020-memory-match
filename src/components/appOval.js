@@ -1,27 +1,18 @@
-import data from '../data/geometry/dataOval.js'
 
-const App = () => { 
-
-const father = document.getElementById("father");
-const wrap = document.createElement("div");
-wrap.className = 'wrap';
-father.appendChild(wrap);
-
-   let geometryImages= data.items;
-  
-const mezclarArreglo = (geometryImages) => {
-  let mix="";
+export const mezclarArreglo = (geometryImages) => {
+  let mix=[...geometryImages];
 	for (let i = geometryImages.length - 1; i > 0; i--) {
 		let indiceAleatorio = Math.floor(Math.random() * (i + 1));
-     let temporal = geometryImages[i];
-		let mix= geometryImages[i] = geometryImages[indiceAleatorio];
-		geometryImages[indiceAleatorio] = temporal;
+    [mix[i],mix[indiceAleatorio]]=[mix[indiceAleatorio],mix[i]]
 	}
   return mix
-};
-  mezclarArreglo(geometryImages)
-
-  for (let i=0; i < geometryImages.length;i++){
+}
+export const createdBoard= (geometryImages) =>{ 
+  let wrap = document.createElement("div");
+  wrap.className = 'wrap';
+  let mixedArray= mezclarArreglo(geometryImages);
+ 
+  for (let i=0; i < mixedArray.length;i++){
     const cardWrap = document.createElement("div");
   wrap.appendChild(cardWrap);
   cardWrap.setAttribute("class", `cardWrap`);
@@ -31,7 +22,7 @@ const mezclarArreglo = (geometryImages) => {
   cardWrap.appendChild(card);
   card.setAttribute("class", `card`);
   card.setAttribute("id",`card`);
-  card.setAttribute('name',`${data.items[i].name}`);
+  card.setAttribute('name',`${mixedArray[i].name}`);
   const frontFace = document.createElement('div');
   const backFace = document.createElement('div');
   card.appendChild(frontFace);
@@ -39,18 +30,10 @@ const mezclarArreglo = (geometryImages) => {
   frontFace.setAttribute("class", `frontFace`);
   backFace.setAttribute("class", `backFace`);
   backFace.setAttribute("id","backFace");
-  }
-  for (let i=0; i < geometryImages.length;i++){
-    const img1 = document.createElement('img');
-    img1.setAttribute('src', geometryImages[i].image);
-   img1.setAttribute('name',`${data.items[i].name}`);
-     img1.setAttribute('class', `flippedImage`);
-   let backFace = document.querySelectorAll(".backFace");
-    backFace[i].appendChild(img1);
-  }
-
-};
-export default App;
-
-   
-
+  const img1 = document.createElement('img');
+  img1.setAttribute('class', `flippedImage`);  
+  img1.setAttribute('src', mixedArray[i].image);
+  backFace.appendChild(img1);
+  } 
+ return wrap
+}
